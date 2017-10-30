@@ -1,5 +1,5 @@
-import warnings
-warnings.filterwarnings('ignore')
+# import warnings
+# warnings.filterwarnings('ignore')
 
 import tensorflow as tf
 import numpy as np
@@ -119,7 +119,7 @@ if __name__ == '__main__':
 
             last_100_losses = []
 
-            for i in xrange(iterations + 1):
+            for i in range(iterations + 1):
                 llprint("\rIteration %d/%d" % (i, iterations))
 
                 random_length = np.random.randint(1, sequence_max_length + 1)
@@ -139,9 +139,9 @@ if __name__ == '__main__':
                 })
 
                 last_100_losses.append(loss_value)
-                summerizer.add_summary(summary, i)
 
                 if summerize:
+                    summerizer.add_summary(summary, i)
                     llprint("\n\tAvg. Logistic Loss: %.4f\n" % (np.mean(last_100_losses)))
                     last_100_losses = []
 
